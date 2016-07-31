@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -84,6 +84,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>很早之前就想建立自己的博客网站，因为发现写东西是多数牛人不断进步的共同方法，分享给别人其实是在梳理自己。所以也利用WordPress建立了一个网站，并且还在GoDaddy上申请了域名<a href="http://www.oralife.net" target="_blank" rel="external">梦想照进现实</a>,但是写了第一篇后就没有坚持下来，当时的那篇也可以转载过来。原因还是由于写不出来，写不出来的原因按照李笑来的说法有输入太少，没有处理能力。</p>
+<blockquote>
+<p>很早就有搭建Blog站点的想法了，都因自己的惰性和粘性从未开始，虽然也零零碎碎的在自己的机器上记下了近千篇称之为随记的东西，但始终没有一篇公开的日志。每每看到别人的东西，或谈理想，或谈技术，一切都显得风清云淡，就感慨如果当初自己能够做到并坚持下来，也算是早一批的Blogger了。</p>
+<p>小时候不喜欢写日记，坐在那里挤牙膏似的修改着每一个字词，完成老师或家长布置的不喜欢的任务。现在觉得写文章是一件自然的事情，脑子每时每刻都是在动的，有些话到嘴边不记下来会溜走的，日子一天一天过去，生活也就不留在任何地方了。</p>
+<p>我的默默无闻的技术理想如今已是进退两难，常常潜意识地思考要么是自己的努力或坚持程度不够，还不至于找天赋的借口，要么真是天生平庸，但我宁愿相信前者。</p>
+<p>我与人沟通时不善于打情骂俏，容易直白表露自己的想法，这些沟通的障碍在互联网的技术时代越来越被社会所淘汰。互联网时代的技术人已不再需要独自埋头苦干了，他们善于各种娱乐调侃的段子，他们能直言不讳地评论政府社会，当然他们更善于开放地研究技术。</p>
+<p>近些年来自己的一个变化是常常会陷于一些逻辑的思维中：万物有规律，技术有规律，社会有规律。人与人之间有平衡，有竞争，有合作。技术之间也有权衡，有取舍，有优化。</p>
+<p>自己的种种缺陷都需要自己以更加开放的心态去解决，所以把自己最真实的想法记录下来，梳理自己，分享自己，希望若干年后暮然回首起那些失败或小有成就的岁月，你可以无悔地对它说拜拜了。</p>
+<p>最后总结一下，希望这个Blog能带给自己：</p>
+<ul>
+<li>整理零碎的想法，形成系统的分析思考保险互联网产品的实验工场</li>
+<li>Web技术的实验工场生活调味品网摘加评论</li>
+<li>给自己留下一份珍贵的电子财富吧。</li>
+</ul>
+</blockquote>
 <p>现在又有个机会跟着李笑来学习Mac笔记本上计算机的编程，他推荐了一种学习计算机编程的方法，就是用假装已经成为高手，然后用上最新的技术来做事，这其中就举到建立博客网站的故事。</p>
 <p>有必要说一下原来WordPress和Hexo写博客的不同点，WordPress提供一套PHP程序搭建一个博客网站，提供了写文章的后台管理界面，然后部署到服务器上，你没觉得写文章很麻烦吗？要打开界面把文章贴进去，然后发布。Hexo不是这个思路，写文章就像本地写Txt文本一样，然后它提供了自动化的发布功能。</p>
 <h2 id="做什么"><a href="#做什么" class="headerlink" title="做什么"></a>做什么</h2><p>利用Hexo在GitHub上建一个静态Blog站点。这点有三个概念：</p>
@@ -105,57 +119,24 @@
 <li>做一些初始化操作，这一步的目的很多软件要用起来就是要做一些初始化工作的，参见别人的文档或者官方文档照着做就行了，当然它每一步的操作背后都有很多细节的操作。</li>
 </ol>
 <h2 id="部署-Hexo"><a href="#部署-Hexo" class="headerlink" title="部署 Hexo"></a>部署 Hexo</h2><p>写好的文章要部署到服务器上用命令是多么简单的事情，而且命令要尽量简易。就是这么简单。</p>
+<h2 id="简易使用方法"><a href="#简易使用方法" class="headerlink" title="简易使用方法"></a>简易使用方法</h2><p>Hexo发布完成后，Hexo会自动生成一个Hello World网页，这里简单地把Hello World内容移植到这里。总之就是例举了一些简单的命令，让你有问题都可以通过官方文档查询到的。其实不必按照它这个做的，懂了怎么做都可以。</p>
+<ol>
+<li>创建新文章</li>
+<li><p>启动一个本地服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+</li>
+<li><p>生成静态文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+</li>
+<li><p>发布到远程服务器上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/30/160730_使用Hexo建立博客网站/" data-id="cira0dqfe0000aesj7rln4ojj" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/29/hello-world/" class="article-date">
-  <time datetime="2016-07-29T15:53:44.000Z" itemprop="datePublished">2016-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<h3 id="Install-Successful"><a href="#Install-Successful" class="headerlink" title="Install Successful"></a>Install Successful</h3><p>Have fun!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/29/hello-world/" data-id="cira0dqfk0001aesjsgktgvf4" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/07/30/160730_使用Hexo建立博客网站/" data-id="cira3ghx70000l7sj05gd9x1y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,16 +171,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2016/07/30/160730_使用Hexo建立博客网站/">使用Hexo建立博客网站</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/29/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -215,7 +192,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
