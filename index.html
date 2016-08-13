@@ -248,6 +248,116 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/12/160812_在Mac上安装Net Code/" itemprop="url">
+                  在Mac上运行Net程序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-12T23:48:19+08:00" content="2016-08-12">
+              2016-08-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>居然可以在Mac上运行Net程序了，让我激动不已，回去试了试。</p>
+<h2 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h2><ol>
+<li>下载 Visual Code</li>
+<li>下载安装 .Net Core SDK</li>
+<li>在 Visual Code下载安装 C# Extension</li>
+</ol>
+<h2 id="几个错误"><a href="#几个错误" class="headerlink" title="几个错误"></a>几个错误</h2><ol>
+<li><p>不能运行 dotnet new命令<br>重启电脑就好了。</p>
+</li>
+<li><p>运行dotnet new命令出错</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$ dotnet new</div><div class="line"></div><div class="line">Unhandled Exception: System.TypeInitializationException: The type initializer for &apos;Crypto&apos; threw an exception. ---&gt; System.TypeInitializationException: The type initializer for &apos;CryptoInitializer&apos; threw an exception. ---&gt; System.DllNotFoundException: Unable to load DLL &apos;System.Security.Cryptography.Native&apos;: The specified module could not be found.</div><div class="line"> (Exception from HRESULT: 0x8007007E)</div><div class="line">   at Interop.CryptoInitializer.EnsureOpenSslInitialized()</div><div class="line">   at Interop.CryptoInitializer..cctor()</div><div class="line">   --- End of inner exception stack trace ---</div><div class="line">   at Interop.Crypto..cctor()</div><div class="line">   --- End of inner exception stack trace ---</div><div class="line">   at Interop.Crypto.GetRandomBytes(Byte* buf, Int32 num)</div><div class="line">   at System.IO.Path.GetCryptoRandomBytes(Byte* bytes, Int32 byteCount)</div><div class="line">   at System.IO.Path.GetRandomFileName()</div><div class="line">   at Microsoft.DotNet.InternalAbstractions.TemporaryDirectory..ctor()</div><div class="line">   at Microsoft.Extensions.EnvironmentAbstractions.DirectoryWrapper.CreateTemporaryDirectory()</div><div class="line">   at Microsoft.DotNet.Configurer.NuGetPackagesArchiver..ctor()</div><div class="line">   at Microsoft.DotNet.Cli.Program.ConfigureDotNetForFirstTimeUse(INuGetCacheSentinel nugetCacheSentinel)</div><div class="line">   at Microsoft.DotNet.Cli.Program.ProcessArgs(String[] args, ITelemetry telemetryClient)</div><div class="line">   at Microsoft.DotNet.Cli.Program.Main(String[] args)</div><div class="line">Abort trap: 6</div></pre></td></tr></table></figure>
+<p>上网查询了以下，发现是与 openssl 有关，看来官网上要执行以下这两个语句作为先决条件还是有道理的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/</div><div class="line"></div><div class="line">EddieLiu at EddiedeMacBook-Pro in ~/Study/hwapp</div><div class="line"></div><div class="line">$ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/</div><div class="line"></div><div class="line">EddieLiu at EddiedeMacBook-Pro in /usr/local/opt/openssl/lib on master</div></pre></td></tr></table></figure>
+<p>然后就看到了成功的界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">$ dotnet new</div><div class="line"></div><div class="line">Welcome to .NET Core!</div><div class="line">---------------------</div><div class="line">Learn more about .NET Core @ https://aka.ms/dotnet-docs. Use dotnet --help to see available commands or go to https://aka.ms/dotnet-cli-docs.</div><div class="line">Telemetry</div><div class="line">--------------</div><div class="line">The .NET Core tools collect usage data in order to improve your experience. The data is anonymous and does not include commandline arguments. The data is collected by Microsoft and shared with the community.</div><div class="line">You can opt out of telemetry by setting a DOTNET_CLI_TELEMETRY_OPTOUT environment variable to 1 using your favorite shell.</div><div class="line">You can read more about .NET Core tools telemetry @ https://aka.ms/dotnet-cli-telemetry.</div><div class="line">Configuring...</div><div class="line">-------------------</div><div class="line">A command is running to initially populate your local package cache, to improve restore speed and enable offline access. This command will take up to a minute to complete and will only happen once.</div><div class="line">Decompressing 100% 2452 ms</div><div class="line">Expanding 100% 4449 ms</div><div class="line">Created new C# project in /Users/EddieLiu/Study/hwapp.</div><div class="line"></div><div class="line">EddieLiu at EddiedeMacBook-Pro in ~/Study/hwapp</div><div class="line"></div><div class="line">$ dotnet restore</div><div class="line">log  : Restoring packages for /Users/EddieLiu/Study/hwapp/project.json...</div><div class="line">log  : Writing lock file to disk. Path: /Users/EddieLiu/Study/hwapp/project.lock.json</div><div class="line">log  : /Users/EddieLiu/Study/hwapp/project.json</div><div class="line">log  : Restore completed in 826ms.</div><div class="line"></div><div class="line">EddieLiu at EddiedeMacBook-Pro in ~/Study/hwapp</div><div class="line">$ dotnet run</div><div class="line">Project hwapp (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing</div><div class="line">Compiling hwapp for .NETCoreApp,Version=v1.0</div><div class="line"></div><div class="line">Compilation succeeded.</div><div class="line">    0 Warning(s)</div><div class="line">    0 Error(s)</div><div class="line"></div><div class="line">Time elapsed 00:00:01.1495883</div><div class="line"></div><div class="line"></div><div class="line">Hello World!</div><div class="line"></div><div class="line">EddieLiu at EddiedeMacBook-Pro in ~/Study/hwapp</div><div class="line">$</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/02/160802_写作/" itemprop="url">
                   写作
                 </a>
@@ -556,7 +666,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
